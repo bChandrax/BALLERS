@@ -1,0 +1,78 @@
+.games {
+  padding: 48px 20px 56px;
+  background: var(--color-bg);
+}
+
+.games__heading {
+  margin: 0 0 28px;
+  text-align: center;
+  font-family: var(--font-heading);
+  font-weight: 700;
+  font-size: 22px;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--color-orange);
+  text-decoration: underline;
+  text-decoration-color: var(--color-orange);
+  text-underline-offset: 8px;
+}
+
+.games__grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 14px;
+}
+
+.games__card {
+  border: 1px solid var(--color-panel-border);
+  border-radius: 2px;
+  overflow: hidden;
+  background: var(--color-panel);
+  display: flex;
+  flex-direction: column;
+}
+
+.games__card-title {
+  margin: 0;
+  padding: 10px 12px;
+  background: var(--color-orange);
+  color: #191100;
+  font-family: var(--font-heading);
+  font-weight: 700;
+  font-size: 13px;
+  letter-spacing: 0.02em;
+  text-transform: uppercase;
+  line-height: 1.2;
+}
+
+.games__card-body {
+  flex: 1;
+  padding: 14px 12px;
+  min-height: 76px;
+  display: flex;
+  align-items: flex-start;
+}
+
+.games__card-body p {
+  margin: 0;
+  font-size: 13px;
+  line-height: 1.4;
+  color: var(--color-text-dim);
+}
+
+.games__card--featured {
+  border-color: var(--color-blue);
+  box-shadow: 0 0 0 1px var(--color-blue);
+}
+
+.games__card--featured .games__card-title {
+  background: var(--color-panel);
+  color: var(--color-blue);
+  border-bottom: 1px solid var(--color-blue);
+}
+
+@media (max-width: 340px) {
+  .games__grid {
+    grid-template-columns: 1fr;
+  }
+}

@@ -1,0 +1,25 @@
+.footer {
+  padding: 20px;
+  border-top: 1px solid var(--color-panel-border);
+  background: var(--color-bg-soft);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.footer__logo {
+  font-family: var(--font-display);
+  font-size: 16px;
+  color: var(--color-orange);
+  text-transform: uppercase;
+}
+
+.footer__credit {
+  font-family: var(--font-heading);
+  font-size: 12px;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  color: var(--color-text-dim);
+}
