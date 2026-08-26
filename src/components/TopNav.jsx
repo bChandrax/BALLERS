@@ -12,7 +12,7 @@ export default function TopNav() {
           Games
         </a>
         <a href="#register" className="topnav__cta">
-          Register Now
+          Register
         </a>
       </nav>
     </header>
