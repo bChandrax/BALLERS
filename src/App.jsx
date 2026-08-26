@@ -1,16 +1,15 @@
-import TopNav from "./components/TopNav";
-import Hero from "./components/Hero";
-import Games from "./components/Games";
-import Footer from "./components/Footer";
+import Home from "./pages/Home";
+import RegisterForm from "./components/RegisterForm"
 import "./index.css";
+import { Route, Routes, BrowserRouter } from 'react-router-dom'
 
 export default function App() {
   return (
-    <div className="app">
-      <TopNav />
-      <Hero />
-      <Games />
-      <Footer />
-    </div>
+  <BrowserRouter>
+  <Routes>
+    <Route path="/" element={<Home />}/>
+    <Route path="/form" element={<RegisterForm />}/>
+  </Routes>
+  </BrowserRouter>
   );
 }
