@@ -15,8 +15,8 @@
   --font-heading: "Barlow Condensed", "Arial Narrow", sans-serif;
   --font-body: "Barlow", "Helvetica Neue", Arial, sans-serif;
 
-  --nav-height: 60px;
-  --max-width: 720px;
+  --nav-height: fit-content;
+  --max-width: 100vw;
 }
 
 * {

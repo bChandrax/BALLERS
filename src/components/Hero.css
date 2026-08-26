@@ -1,6 +1,6 @@
 .hero {
   position: relative;
-  min-height: 460px;
+  min-height: 800px;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -14,10 +14,10 @@
 .hero__bg {
   position: absolute;
   inset: 0;
-  background-image: url("../assets/hero-hoop.jpg"),
+  background-image: url("../assets/heroimg.jpeg"),
     radial-gradient(ellipse at 50% 0%, #2c2210 0%, #171b22 55%, #0a0c10 100%);
   background-size: cover;
-  background-position: center 30%;
+  background-position: center 0%;
   filter: saturate(0.9);
 }
 
@@ -46,7 +46,7 @@
 .hero__title {
   margin: 0;
   font-family: var(--font-display);
-  font-size: clamp(64px, 18vw, 92px);
+  font-size: clamp(64px, 18vw, 200px);
   line-height: 0.9;
   letter-spacing: 0.01em;
   color: var(--color-orange);
@@ -61,7 +61,7 @@
 }
 
 .hero__meta-box {
-  min-width: 132px;
+  min-width: 300px;
   padding: 10px 18px 14px;
   background: rgba(10, 12, 16, 0.55);
   border: 1.5px solid var(--color-orange);
@@ -74,7 +74,7 @@
 
 .hero__meta-label {
   font-family: var(--font-heading);
-  font-size: 11px;
+  font-size: 1rem;
   font-weight: 700;
   letter-spacing: 0.18em;
   color: var(--color-orange);
@@ -84,15 +84,16 @@
 .hero__meta-value {
   font-family: var(--font-heading);
   font-weight: 700;
-  font-size: 20px;
+  font-size: 2rem;
   line-height: 1.1;
   letter-spacing: 0.02em;
   text-transform: uppercase;
 }
 
 .hero__org {
-  padding-top: 6px;
+  padding-block: 10px;
   border-top: 2px solid var(--color-yellow);
+  border-bottom: 2px solid var(--color-yellow);
   width: 160px;
 }
 
