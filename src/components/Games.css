@@ -1,6 +1,10 @@
 .games {
   padding: 48px 20px 56px;
+  height: 600px;
   background: var(--color-bg);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
 .games__heading {
@@ -8,7 +12,7 @@
   text-align: center;
   font-family: var(--font-heading);
   font-weight: 700;
-  font-size: 22px;
+  font-size: 2rem;
   letter-spacing: 0.1em;
   text-transform: uppercase;
   color: var(--color-orange);
@@ -21,10 +25,12 @@
   display: grid;
   grid-template-columns: 1fr 1fr;
   gap: 14px;
+  width: 60vw;
 }
 
 .games__card {
   border: 1px solid var(--color-panel-border);
+  height: 20vh;
   border-radius: 2px;
   overflow: hidden;
   background: var(--color-panel);
@@ -39,7 +45,7 @@
   color: #191100;
   font-family: var(--font-heading);
   font-weight: 700;
-  font-size: 13px;
+  font-size: 1.25rem;
   letter-spacing: 0.02em;
   text-transform: uppercase;
   line-height: 1.2;
@@ -47,15 +53,17 @@
 
 .games__card-body {
   flex: 1;
-  padding: 14px 12px;
   min-height: 76px;
   display: flex;
+  flex-direction: column;
   align-items: flex-start;
+  justify-content: center;
 }
 
 .games__card-body p {
   margin: 0;
-  font-size: 13px;
+  padding-inline: 10px;
+  font-size: 1.25rem;
   line-height: 1.4;
   color: var(--color-text-dim);
 }
