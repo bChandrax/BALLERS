@@ -51,7 +51,7 @@
   letter-spacing: 0.01em;
   color: var(--color-orange);
   text-transform: uppercase;
-  -webkit-text-stroke: 2px #120a00;
+  -webkit-text-stroke: 1px #120a00;
   text-shadow: 0 6px 0 #120a00, 0 10px 24px rgba(0, 0, 0, 0.6);
 }
 
