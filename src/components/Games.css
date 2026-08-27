@@ -1,6 +1,6 @@
 .games {
   padding: 48px 20px 56px;
-  height: 600px;
+  min-height: fit-content;
   background: var(--color-bg);
   display: flex;
   flex-direction: column;

@@ -1,6 +1,7 @@
 import Home from "./pages/Home";
 import RegisterForm from "./components/RegisterForm"
 import "./index.css";
+import "./responsiveness.css";
 import { Route, Routes, BrowserRouter } from 'react-router-dom'
 
 export default function App() {

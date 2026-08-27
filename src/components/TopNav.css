@@ -52,17 +52,11 @@
   justify-content: center;
   color: #191100;
   height: 3rem;
-  width: 7vw;
+  width: 150px;
   transition: background 0.15s ease, transform 0.15s ease;
 }
 
 .topnav__cta:hover {
   background: var(--color-yellow);
   transform: translateY(-1px);
-}
-
-@media (max-width: 380px) {
-  .topnav__link {
-    display: none;
-  }
 }
