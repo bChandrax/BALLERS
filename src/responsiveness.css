@@ -10,17 +10,17 @@
     .games__grid{width: 90vw;}
 }
 
-@media (max-width:609px) {
-    .games__card{height: 225px;}
-    .games__card-body{justify-content: flex-start;}
-}
-
 @media (max-width:666px) {
 
     .games__grid{width: 90vw;}
     .games__card{
         font-size: 12px;
     }
+}
+
+@media (max-width:609px) {
+    .games__card{height: 225px;}
+    .games__card-body{justify-content: flex-start;}
 }
 
 @media (max-width:568px) {
