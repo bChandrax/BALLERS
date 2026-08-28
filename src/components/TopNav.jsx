@@ -1,4 +1,5 @@
 import "./TopNav.css";
+import { Link } from "react-router-dom";
 
 export default function TopNav() {
   return (
@@ -11,9 +12,9 @@ export default function TopNav() {
         <a href="#games" className="topnav__link">
           Games
         </a>
-        <a href="#register" className="topnav__cta">
+        <Link to="/form" className="topnav__cta">
           Register
-        </a>
+        </Link>
       </nav>
     </header>
   );
