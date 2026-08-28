@@ -40,3 +40,16 @@
 .register__message--error {
   color: red;
 }
+
+.register__confirmation {
+  max-width: 400px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+textarea.register__input {
+  font-family: inherit;
+  resize: vertical;
+}

@@ -1,0 +1,79 @@
+.admin {
+  padding: 1.5rem;
+  font-family: inherit;
+}
+
+.admin--gate {
+  max-width: 320px;
+  margin: 4rem auto;
+  text-align: center;
+}
+
+.admin--gate form {
+  display: flex;
+  gap: 0.5rem;
+  margin-top: 1rem;
+}
+
+.admin--gate input {
+  flex: 1;
+  padding: 0.5rem;
+}
+
+.admin__header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 1rem;
+}
+
+.admin__summary {
+  display: flex;
+  gap: 1.5rem;
+  margin-bottom: 1rem;
+  font-size: 0.95rem;
+}
+
+.admin__controls {
+  display: flex;
+  gap: 0.5rem;
+  margin-bottom: 1rem;
+  flex-wrap: wrap;
+}
+
+.admin__controls input {
+  flex: 1;
+  min-width: 200px;
+  padding: 0.4rem;
+}
+
+.admin__table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.85rem;
+}
+
+.admin__table th,
+.admin__table td {
+  border: 1px solid #ccc;
+  padding: 0.4rem 0.5rem;
+  text-align: left;
+  vertical-align: top;
+}
+
+.admin__row--confirmed {
+  background: rgba(0, 128, 0, 0.08);
+}
+
+.admin__row--pending {
+  background: rgba(255, 165, 0, 0.08);
+}
+
+.admin__actions {
+  display: flex;
+  gap: 0.4rem;
+}
+
+.admin__error {
+  color: red;
+}
