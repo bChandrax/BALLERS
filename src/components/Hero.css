@@ -6,6 +6,7 @@
   justify-content: center;
   overflow: hidden;
   border-bottom: 4px solid var(--color-yellow);
+  box-shadow: 0px 4px 0px 1px var(--color-blue);
 }
 
 /* Drop your Framer export / photo at src/assets/hero-hoop.jpg

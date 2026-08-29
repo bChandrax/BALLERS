@@ -1,0 +1,26 @@
+services:
+  # --- Backend: Express API in /server ---
+  - type: web
+    name: ballers-server
+    runtime: node
+    plan: free
+    rootDir: server
+    buildCommand: npm install
+    startCommand: npm start
+    envVars:
+      - key: ADMIN_KEY
+        sync: false      # set the real value in the Render dashboard, not here
+      - key: NODE_VERSION
+        value: 20.11.1
+
+  # --- Frontend: Vite build, served as a static site (also free, no sleep) ---
+  - type: web
+    name: ballers-frontend
+    runtime: static
+    plan: free
+    buildCommand: npm install && npm run build
+    staticPublishPath: dist
+    routes:
+      - type: rewrite
+        source: /*
+        destination: /index.html
