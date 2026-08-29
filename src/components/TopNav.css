@@ -26,7 +26,13 @@
   gap: 18px;
 }
 
+
+
 .topnav__link {
+  padding-inline: 2vw;
+  height: 3rem;
+  display: flex;
+  align-items: center;
   font-family: var(--font-heading);
   font-weight: 600;
   font-size: 1.5rem;
@@ -39,6 +45,12 @@
 .topnav__link:hover {
   opacity: 1;
   color: var(--color-orange);
+}
+
+.topnav__link:active,
+.topnav__cta:active{
+  background: var(--color-blue);
+  color: black;
 }
 
 .topnav__cta {
@@ -58,6 +70,6 @@
 }
 
 .topnav__cta:hover {
-  background: var(--color-blue);
+  background: var(--color-yellow);
   transform: translateY(-1px);
 }
