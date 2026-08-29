@@ -2,6 +2,7 @@
 :root {
   --color-bg: #0a0c10;
   --color-bg-soft: #12151c;
+  --color-nav-color:hsl(236, 100%, 7%);
   --color-panel: #1c1f26;
   --color-panel-border: #2c2f38;
   --color-orange: #ff8c1f;

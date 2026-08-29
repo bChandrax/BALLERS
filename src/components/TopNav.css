@@ -4,8 +4,9 @@
   align-items: center;
   justify-content: space-between;
   padding: 0 20px;
-  background: var(--color-bg-soft);
-  border-bottom: 1px solid var(--color-panel-border);
+  background: var(--color-nav-color);
+  border-bottom: 3px solid var(--color-orange);
+  box-shadow: 0px 1px 0px 1px var(--color-yellow);
   position: sticky;
   top: 0;
   z-index: 50;
@@ -57,6 +58,6 @@
 }
 
 .topnav__cta:hover {
-  background: var(--color-yellow);
+  background: var(--color-blue);
   transform: translateY(-1px);
 }

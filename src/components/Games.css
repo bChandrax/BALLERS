@@ -1,7 +1,8 @@
 .games {
   padding: 48px 20px 56px;
   min-height: fit-content;
-  background: var(--color-bg);
+  background: #000000;
+background: linear-gradient(180deg, rgba(0, 0, 0, 1) 0%, var(--color-nav-color) 65%);
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -51,6 +52,19 @@
   line-height: 1.2;
 }
 
+.games__card:hover .games__card-title{
+  background: var(--color-yellow);
+}
+
+.games__card:hover .games__card-body{
+  color: var(--color-blue)
+}
+
+.games__card:hover{
+  scale:1.05;
+  transition: 0.5s ease;
+}
+
 .games__card-body {
   flex: 1;
   min-height: 76px;
@@ -77,10 +91,4 @@
   background: var(--color-panel);
   color: var(--color-blue);
   border-bottom: 1px solid var(--color-blue);
-}
-
-@media (max-width: 340px) {
-  .games__grid {
-    grid-template-columns: 1fr;
-  }
 }

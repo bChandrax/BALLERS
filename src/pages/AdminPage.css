@@ -1,79 +1,268 @@
 .admin {
-  padding: 1.5rem;
-  font-family: inherit;
+  padding: 2rem 1.5rem 3rem;
+  font-family: var(--font-body);
+  color: var(--color-text);
+  background: var(--color-bg);
+  height: fit-content;
 }
 
+.admin h1 {
+  margin: 0;
+  font-family: var(--font-heading);
+  font-weight: 700;
+  font-size: 1.6rem;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--color-orange);
+}
+
+/* ---------- Login gate ---------- */
+
 .admin--gate {
-  max-width: 320px;
-  margin: 4rem auto;
+  max-width: 340px;
+  margin: 5rem auto;
+  padding: 2rem 1.75rem;
+  background: var(--color-panel);
+  border: 1px solid var(--color-panel-border);
+  border-radius: 4px;
   text-align: center;
+}
+
+.admin--gate h1 {
+  margin-bottom: 0.25rem;
 }
 
 .admin--gate form {
   display: flex;
   gap: 0.5rem;
-  margin-top: 1rem;
+  margin-top: 1.25rem;
 }
 
 .admin--gate input {
   flex: 1;
-  padding: 0.5rem;
+  padding: 0.6rem 0.7rem;
+  font-family: var(--font-body);
+  font-size: 1rem;
+  color: var(--color-text);
+  background: var(--color-bg-soft);
+  border: 1px solid var(--color-panel-border);
+  border-radius: 3px;
 }
+
+.admin--gate input:focus {
+  outline: none;
+  border-color: var(--color-orange);
+  box-shadow: 0 0 0 2px rgba(255, 140, 31, 0.25);
+}
+
+.admin--gate button {
+  padding: 0.6rem 1rem;
+  font-family: var(--font-heading);
+  font-weight: 700;
+  font-size: 0.85rem;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: #191100;
+  background: var(--color-orange);
+  border: none;
+  border-radius: 3px;
+  cursor: pointer;
+  transition: background 0.15s ease;
+}
+
+.admin--gate button:hover {
+  background: var(--color-yellow);
+}
+
+/* ---------- Header / summary / controls ---------- */
 
 .admin__header {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  margin-bottom: 1rem;
+  margin-bottom: 1.25rem;
+  padding-bottom: 1rem;
+  border-bottom: 1px solid var(--color-panel-border);
+}
+
+.admin__header button {
+  padding: 0.5rem 0.9rem;
+  font-family: var(--font-heading);
+  font-weight: 600;
+  font-size: 0.8rem;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  color: var(--color-text);
+  background: transparent;
+  border: 1px solid var(--color-panel-border);
+  border-radius: 3px;
+  cursor: pointer;
+  transition: border-color 0.15s ease, color 0.15s ease;
+}
+
+.admin__header button:hover {
+  border-color: var(--color-orange);
+  color: var(--color-orange);
 }
 
 .admin__summary {
   display: flex;
   gap: 1.5rem;
-  margin-bottom: 1rem;
+  margin-bottom: 1.25rem;
+  font-family: var(--font-heading);
+  font-weight: 600;
   font-size: 0.95rem;
+  letter-spacing: 0.03em;
+  color: var(--color-text-dim);
+}
+
+.admin__summary span {
+  padding: 0.4rem 0.85rem;
+  background: var(--color-panel);
+  border: 1px solid var(--color-panel-border);
+  border-radius: 3px;
 }
 
 .admin__controls {
   display: flex;
-  gap: 0.5rem;
-  margin-bottom: 1rem;
+  gap: 0.6rem;
+  margin-bottom: 1.25rem;
   flex-wrap: wrap;
+}
+
+.admin__controls select,
+.admin__controls input {
+  padding: 0.5rem 0.6rem;
+  font-family: var(--font-body);
+  font-size: 0.9rem;
+  color: var(--color-text);
+  background: var(--color-bg-soft);
+  border: 1px solid var(--color-panel-border);
+  border-radius: 3px;
 }
 
 .admin__controls input {
   flex: 1;
   min-width: 200px;
-  padding: 0.4rem;
 }
+
+.admin__controls select:focus,
+.admin__controls input:focus {
+  outline: none;
+  border-color: var(--color-orange);
+}
+
+.admin__controls button {
+  padding: 0.5rem 0.9rem;
+  font-family: var(--font-heading);
+  font-weight: 600;
+  font-size: 0.8rem;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  color: #191100;
+  background: var(--color-orange);
+  border: none;
+  border-radius: 3px;
+  cursor: pointer;
+  transition: background 0.15s ease;
+}
+
+.admin__controls button:hover {
+  background: var(--color-yellow);
+}
+
+/* ---------- Table ---------- */
 
 .admin__table {
   width: 100%;
   border-collapse: collapse;
   font-size: 0.85rem;
+  background: var(--color-panel);
+  border: 1px solid var(--color-panel-border);
 }
 
 .admin__table th,
 .admin__table td {
-  border: 1px solid #ccc;
-  padding: 0.4rem 0.5rem;
+  border: 1px solid var(--color-panel-border);
+  padding: 0.55rem 0.65rem;
   text-align: left;
   vertical-align: top;
 }
 
+.admin__table th {
+  font-family: var(--font-heading);
+  font-weight: 700;
+  font-size: 0.75rem;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--color-orange);
+  background: var(--color-bg-soft);
+  white-space: nowrap;
+}
+
+.admin__table td {
+  color: var(--color-text);
+}
+
 .admin__row--confirmed {
-  background: rgba(0, 128, 0, 0.08);
+  background: rgba(111, 207, 122, 0.08);
 }
 
 .admin__row--pending {
-  background: rgba(255, 165, 0, 0.08);
+  background: rgba(255, 207, 51, 0.06);
+}
+
+.admin__row--confirmed td:first-child,
+.admin__row--pending td:first-child {
+  font-family: var(--font-heading);
+  font-weight: 600;
+  font-size: 0.75rem;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+}
+
+.admin__row--confirmed td:first-child {
+  color: #6fcf7a;
+}
+
+.admin__row--pending td:first-child {
+  color: var(--color-yellow);
 }
 
 .admin__actions {
   display: flex;
   gap: 0.4rem;
+  flex-wrap: wrap;
+}
+
+.admin__actions button {
+  padding: 0.35rem 0.6rem;
+  font-family: var(--font-heading);
+  font-weight: 600;
+  font-size: 0.72rem;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  color: var(--color-text);
+  background: transparent;
+  border: 1px solid var(--color-panel-border);
+  border-radius: 3px;
+  cursor: pointer;
+  transition: border-color 0.15s ease, color 0.15s ease;
+  white-space: nowrap;
+}
+
+.admin__actions button:first-child:hover {
+  border-color: var(--color-blue);
+  color: var(--color-blue);
+}
+
+.admin__actions button:last-child:hover {
+  border-color: #ff8f87;
+  color: #ff8f87;
 }
 
 .admin__error {
-  color: red;
+  color: #ff8f87;
+  font-family: var(--font-body);
+  font-size: 0.9rem;
 }
