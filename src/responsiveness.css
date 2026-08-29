@@ -19,7 +19,6 @@
 }
 
 @media (max-width:666px) {
-
     .games__grid{width: 90vw;}
     .games__card{
         font-size: 12px;
@@ -79,6 +78,10 @@
 }
 
 @media (max-width: 400px) {
+  .hero__meta-box{
+    width: 200px;
+  }
+    
   .admin--gate {
     margin: 3rem 1rem;
     max-width: none;
@@ -124,4 +127,3 @@
         padding-block: 5px;
     }
 }
-
