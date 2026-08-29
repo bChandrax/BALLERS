@@ -4,6 +4,7 @@
 
 @media (max-width:1020px) {
     .games__grid{width: 80vw;}
+    .hero__meta-box{width: 30vw;}
 }
 
 @media (max-width:768px) {

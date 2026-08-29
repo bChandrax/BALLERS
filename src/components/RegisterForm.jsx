@@ -1,5 +1,4 @@
 import { useState } from "react";
-import "./RegisterForm.css";
 
 const GAMES = [
   { id: "3v3-teams", label: "3v3 Teams Tournament", isTeam: true },
@@ -101,7 +100,7 @@ export default function RegisterForm() {
 
   return (
     <section id="register" className="register">
-      <h2 className="register__heading">Register Now</h2>
+      <h2 className="register__heading">Registeration</h2>
 
       <form className="register__form" onSubmit={handleSubmit}>
         <label className="register__label">
