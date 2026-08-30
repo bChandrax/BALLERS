@@ -7,8 +7,10 @@ const GAMES = [
   { id: "girls-3v3", label: "Girls 3v3", isTeam: true },
 ];
 
-// Change this if your backend runs on a different port/host
-const API_URL = "http://localhost:4000/api/register";
+// Reads from VITE_API_BASE (set in .env locally, and in the
+// Vercel dashboard for production). Falls back to localhost for
+// local dev if the env var isn't set.
+const API_URL = `${import.meta.env.VITE_API_BASE || "http://localhost:4000/api"}/register`;
 
 export default function RegisterForm() {
   const [form, setForm] = useState({
