@@ -9,10 +9,10 @@ export default function TopNav() {
       </a>
 
       <nav className="topnav__nav" aria-label="Primary">
-        <a href="#games" className="topnav__link">
+        <a href="#games" className="topnav__link nav-games">
           Games
         </a>
-        <Link to="/registered" className="topnav__link">
+        <Link to="/registered" className="topnav__link nav-registred">
           Registered
         </Link>
         <Link to="/form" className="topnav__cta">

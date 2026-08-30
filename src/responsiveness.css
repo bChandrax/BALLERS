@@ -31,7 +31,7 @@
 }
 
 @media (max-width:568px) {
-    .topnav__nav{width: 200px;}
+    .topnav__nav{width: 70%;}
 
     .hero__content{width: 100%;}
     .hero__meta{width: 100%;}
@@ -77,7 +77,22 @@
     }
 }
 
+@media (max-width:500px){
+    .topnav{
+        padding: 0px 5px;
+    }
+    .topnav__logo{display: none;}
+    .topnav__nav{width: 100vw;}
+}
+
 @media (max-width: 400px) {
+  .topnav{
+    padding: 0px 10px;
+    font-size: 0.75rem;
+  }
+  .topnav__cta{width: 100px;}
+  .topnav__nav{width: 100vw;}
+
   .hero__meta-box{
     width: 200px;
   }
@@ -98,7 +113,6 @@
 }
 
 @media (max-width:360px) {
-    .topnav__logo{display: none;}
     .topnav__nav{
         width: 100vw;
         justify-content: space-between;

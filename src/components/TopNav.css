@@ -2,7 +2,7 @@
   height: var(--nav-height);
   display: flex;
   align-items: center;
-  justify-content: space-between;
+  justify-content: space-around;
   padding: 0 20px;
   background: var(--color-nav-color);
   border-bottom: 3px solid var(--color-orange);
@@ -23,10 +23,8 @@
 .topnav__nav {
   display: flex;
   align-items: center;
-  gap: 18px;
+  justify-content: space-evenly;
 }
-
-
 
 .topnav__link {
   padding-inline: 2vw;
@@ -66,6 +64,7 @@
   color: #191100;
   height: 3rem;
   width: 150px;
+  padding-inline: 5px;
   transition: background 0.15s ease, transform 0.15s ease;
 }
 
