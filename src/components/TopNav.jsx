@@ -12,6 +12,9 @@ export default function TopNav() {
         <a href="#games" className="topnav__link">
           Games
         </a>
+        <Link to="/registered" className="topnav__link">
+          Registered
+        </Link>
         <Link to="/form" className="topnav__cta">
           Register
         </Link>

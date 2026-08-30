@@ -1,6 +1,7 @@
 import Home from "./pages/Home";
 import RegisterForm from "./components/RegisterForm"
 import AdminPage from "./pages/AdminPage";
+import ViewRegistrations from "./pages/ViewRegistrations";
 import "./index.css";
 import "./responsiveness.css";
 import "./components/RegisterForm.css"
@@ -13,6 +14,7 @@ export default function App() {
     <Route path="/" element={<Home />}/>
     <Route path="/form" element={<RegisterForm />}/>
     <Route path="/admin" element={<AdminPage />}/>
+    <Route path="/registered" element={<ViewRegistrations />}/>
   </Routes>
   </BrowserRouter>
   );
