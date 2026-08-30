@@ -7,10 +7,13 @@ const GAMES = [
   { id: "girls-3v3", label: "Girls 3v3", isTeam: true },
 ];
 
+const TEAM_SIZE = 4;
+
 // Reads from VITE_API_BASE (set in .env locally, and in the
 // Vercel dashboard for production). Falls back to localhost for
 // local dev if the env var isn't set.
-const API_URL = `${import.meta.env.VITE_API_BASE || "http://localhost:4000/api"}/register`;
+const API_BASE = import.meta.env.VITE_API_BASE || "http://localhost:4000/api";
+const API_URL = `${API_BASE}/register`;
 
 export default function RegisterForm() {
   const [form, setForm] = useState({
@@ -19,8 +22,8 @@ export default function RegisterForm() {
     phone: "",
     game: "",
     teamName: "",
-    teammates: "",
   });
+  const [members, setMembers] = useState(Array(TEAM_SIZE).fill(""));
   const [status, setStatus] = useState("idle"); // idle | loading | success | error
   const [message, setMessage] = useState("");
   const [confirmation, setConfirmation] = useState(null);
@@ -33,17 +36,38 @@ export default function RegisterForm() {
     setForm((prev) => ({ ...prev, [name]: value }));
   }
 
+  function handleMemberChange(index, value) {
+    setMembers((prev) => {
+      const next = [...prev];
+      next[index] = value;
+      return next;
+    });
+  }
+
   async function handleSubmit(e) {
     e.preventDefault();
     setStatus("loading");
     setMessage("");
     setConfirmation(null);
 
+    const filledMembers = members.map((m) => m.trim()).filter(Boolean);
+
+    if (isTeamGame && filledMembers.length !== TEAM_SIZE) {
+      setStatus("error");
+      setMessage(`Please enter all ${TEAM_SIZE} team member names.`);
+      return;
+    }
+
+    const payload = {
+      ...form,
+      teammates: isTeamGame ? filledMembers.join(", ") : "",
+    };
+
     try {
       const res = await fetch(API_URL, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify(form),
+        body: JSON.stringify(payload),
       });
 
       const data = await res.json();
@@ -55,7 +79,8 @@ export default function RegisterForm() {
       setStatus("success");
       setMessage("You're registered! Your spot is pending admin confirmation.");
       setConfirmation(data.registration);
-      setForm({ name: "", email: "", phone: "", game: "", teamName: "", teammates: "" });
+      setForm({ name: "", email: "", phone: "", game: "", teamName: "" });
+      setMembers(Array(TEAM_SIZE).fill(""));
     } catch (err) {
       setStatus("error");
       setMessage(err.message || "Could not reach the server.");
@@ -80,7 +105,7 @@ export default function RegisterForm() {
             </p>
           )}
           <p>
-            <strong>Status:</strong> Pending — an organizer will confirm your registration
+            <strong>Status:</strong> Pending — an organizer will verify your payment/spot
             before the event.
           </p>
           <p>Save your confirmation code, you may be asked for it at check-in.</p>
@@ -170,20 +195,25 @@ export default function RegisterForm() {
                 value={form.teamName}
                 onChange={handleChange}
                 placeholder="e.g. Court Kings"
+                required
               />
             </label>
 
-            <label className="register__label">
-              Teammates
-              <textarea
-                className="register__input"
-                name="teammates"
-                value={form.teammates}
-                onChange={handleChange}
-                placeholder="Comma-separated names, e.g. Kabo, Naledi, Tumi"
-                rows={2}
-              />
-            </label>
+            <fieldset className="register__team-members">
+              <legend>Team Members (all {TEAM_SIZE} required)</legend>
+              {members.map((member, i) => (
+                <label className="register__label" key={i}>
+                  Player {i + 1}
+                  <input
+                    className="register__input"
+                    type="text"
+                    value={member}
+                    onChange={(e) => handleMemberChange(i, e.target.value)}
+                    required
+                  />
+                </label>
+              ))}
+            </fieldset>
           </>
         )}
 

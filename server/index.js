@@ -105,6 +105,9 @@ const VALID_GAMES = [
   "girls-3v3",
 ];
 
+const TEAM_GAMES = ["3v3-teams", "girls-3v3"];
+const REQUIRED_TEAM_SIZE = 4;
+
 // POST /api/register  -> save a new registration
 app.post(
   "/api/register",
@@ -119,18 +122,31 @@ app.post(
       return res.status(400).json({ error: "A valid game selection is required." });
     }
 
+    const cleanedTeammates = teammates
+      ? String(teammates)
+          .split(",")
+          .map((t) => t.trim())
+          .filter(Boolean)
+      : [];
+
+    if (TEAM_GAMES.includes(game)) {
+      if (!teamName || !teamName.trim()) {
+        return res.status(400).json({ error: "Team name is required for this game." });
+      }
+      if (cleanedTeammates.length !== REQUIRED_TEAM_SIZE) {
+        return res.status(400).json({
+          error: `Please enter exactly ${REQUIRED_TEAM_SIZE} team members (you entered ${cleanedTeammates.length}).`,
+        });
+      }
+    }
+
     const entry = {
       name: name.trim(),
       email: email ? email.trim() : "",
       phone: phone ? phone.trim() : "",
       game,
       teamName: teamName ? teamName.trim() : "",
-      teammates: teammates
-        ? String(teammates)
-            .split(",")
-            .map((t) => t.trim())
-            .filter(Boolean)
-        : [],
+      teammates: cleanedTeammates,
       status: "pending", // pending | confirmed
       confirmationCode: generateConfirmationCode(),
       registeredAt: new Date().toISOString(),
@@ -154,6 +170,33 @@ app.get(
     const registrations = snapshot.docs.map((doc) => ({ id: doc.id, ...doc.data() }));
     registrations.sort((a, b) => new Date(b.registeredAt) - new Date(a.registeredAt));
     return res.json(registrations);
+  })
+);
+
+// GET /api/registrations/public -> public: name/team + verified status only, grouped
+// by game so the site can show "who's registered" tables without exposing
+// emails/phone numbers to every visitor.
+app.get(
+  "/api/registrations/public",
+  requireDb,
+  asyncHandler(async (req, res) => {
+    const snapshot = await db.collection(REGISTRATIONS_COLLECTION).get();
+    const byGame = {};
+    for (const game of VALID_GAMES) byGame[game] = [];
+
+    snapshot.forEach((doc) => {
+      const r = doc.data();
+      if (!byGame[r.game]) byGame[r.game] = [];
+      byGame[r.game].push({
+        id: doc.id,
+        name: r.name,
+        teamName: r.teamName || "",
+        teammates: r.teammates || [],
+        verified: r.status === "confirmed",
+      });
+    });
+
+    return res.json(byGame);
   })
 );
 
